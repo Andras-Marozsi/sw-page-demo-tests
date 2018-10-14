@@ -6,11 +6,12 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
+
 public class SWMainPageTest {
     private WebDriver driver;
     @BeforeSuite
     public void beforeSuite() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
     }
 
     @BeforeTest
