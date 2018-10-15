@@ -1,20 +1,29 @@
 package helpers.pages;
 
 import helpers.components.BaseElement;
+import helpers.components.Footer;
+import helpers.components.Header;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Page helper to perform basic page actions like loading page, refresh, etc.
  */
-public class BasePage {
+public class BaseSWPage {
 
     protected static WebDriver driver;
-    protected String url;
+    protected String url = "https://www.starwars.com";
     protected String dataSection;
+    protected List<BaseElement> listOfDesktopViewElements = new ArrayList<BaseElement>();
+    protected Header header = new Header();
+    protected Footer footer = new Footer();
 
     /**
      * Sets the driver that will be shared among page objects
+     *
      * @param d driver
      */
     public static void setDriver(WebDriver d) {
@@ -32,6 +41,7 @@ public class BasePage {
     /**
      * Defines if the currently loaded page is this page. The validation is based on the module title, might need to be
      * overridden in derived classes
+     *
      * @return boolean value
      */
     public boolean isCurrentPage() {
@@ -43,5 +53,27 @@ public class BasePage {
             current = false;
         }
         return current;
+    }
+
+    /**
+     * Returns the expected elements for desktop layout
+     *
+     * @return listOfElements
+     */
+    public List<BaseElement> getExpectedDesktopLayout() {
+        List<BaseElement> listOfHeaderElements = this.header.getExpectedDesktopLayout();
+        this.listOfDesktopViewElements.addAll(listOfHeaderElements);
+
+        return this.listOfDesktopViewElements;
+    }
+
+    /**
+     * Types in the provided search phrase and sends the ENTER key to the search bar on the page
+     *
+     * @param string to search for
+     */
+    public void search(String string) {
+        this.header.getNavSearch().sendKeys(string);
+        this.header.getNavSearch().submit();
     }
 }

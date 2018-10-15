@@ -5,13 +5,10 @@ import helpers.components.Footer;
 import helpers.components.Header;
 import org.openqa.selenium.By;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Page helper for Star Wars Main page
  */
-public class SWMainPage extends BasePage {
+public class SWMainPage extends BaseSWPage {
 
     private Header header = new Header();
     private Footer footer = new Footer();
@@ -57,36 +54,12 @@ public class SWMainPage extends BasePage {
 
     public SWMainPage() {
         super();
-        this.url = "https://www.starwars.com/";
+        this.url += "/";
         this.dataSection = "";
-    }
-
-    /**
-     * Types in the provided search phrase and sends the ENTER key to the search bar in the nav
-     *
-     * @param string to search for
-     */
-    public void search(String string) {
-        header.getNavSearch().sendKeys(string);
-        header.getNavSearch().submit();
-    }
-
-    /**
-     * Returns the expected elements for desktop layout
-     *
-     * @return listOfElements
-     */
-    public List<BaseElement> getExpectedDesktopLayout() {
-        List<BaseElement> listOfElements = new ArrayList<BaseElement>();
-        listOfElements.add(header);
-        listOfElements.add(newsSection);
-        listOfElements.add(videoSection);
-        listOfElements.add(footer);
-
-        List<BaseElement> listOfHeaderElements = header.getExpectedDesktopLayout();
-        listOfElements.addAll(listOfHeaderElements);
-
-        return listOfElements;
+        listOfDesktopViewElements.add(header);
+        listOfDesktopViewElements.add(newsSection);
+        listOfDesktopViewElements.add(videoSection);
+        listOfDesktopViewElements.add(footer);
     }
 
 }

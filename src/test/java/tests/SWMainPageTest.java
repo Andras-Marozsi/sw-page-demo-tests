@@ -1,14 +1,13 @@
 package tests;
 
 import helpers.components.BaseElement;
-import helpers.pages.BasePage;
+import helpers.pages.BaseSWPage;
 import helpers.pages.SWMainPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SWMainPageTest {
@@ -20,7 +19,7 @@ public class SWMainPageTest {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
         BaseElement.setDriver(driver);
-        BasePage.setDriver(driver);
+        BaseSWPage.setDriver(driver);
         mainPage = new SWMainPage();
     }
 
@@ -33,6 +32,7 @@ public class SWMainPageTest {
     @Test(dependsOnMethods = {"testPageLoads"}, priority = 2)
     public void testPageTitle() {
         String title = driver.getTitle();
+        System.out.printf("Title of page: %s\n", title);
         Assert.assertTrue(title.contains("The Official Star Wars Website"), "Actual title: " + title);
     }
 

@@ -5,13 +5,10 @@ import helpers.components.Footer;
 import helpers.components.Header;
 import org.openqa.selenium.By;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Page helper for Star Wars Video page
  */
-public class SWVideoPage extends BasePage {
+public class SWVideoPage extends BaseSWPage {
 
     private Header header = new Header();
     private Footer footer = new Footer();
@@ -38,8 +35,13 @@ public class SWVideoPage extends BasePage {
 
     public SWVideoPage() {
         super();
-        this.url = "https://www.starwars.com/video";
+        this.url += "/video";
         this.dataSection = "video";
+        listOfDesktopViewElements.add(header);
+        listOfDesktopViewElements.add(topShowSection);
+        listOfDesktopViewElements.add(featuredVideosSection);
+        listOfDesktopViewElements.add(browseVideosSection);
+        listOfDesktopViewElements.add(footer);
     }
 
     /**
@@ -47,39 +49,9 @@ public class SWVideoPage extends BasePage {
      *
      * @param string to search for
      */
-    public void navSearch(String string) {
+    public void searchVideos(String string) {
         videosSearchBar.sendKeys(string);
         videosSearchBar.submit();
-    }
-
-    /**
-     * Types in the provided search phrase and sends the ENTER key to the search bar on the page
-     *
-     * @param string to search for
-     */
-    public void searchVideos(String string) {
-        header.getNavSearch().sendKeys(string);
-        header.getNavSearch().submit();
-    }
-
-    /**
-     * Returns the expected elements for desktop layout
-     *
-     * @return listOfElements
-     */
-    public List<BaseElement> getExpectedDesktopLayout() {
-        List<BaseElement> listOfElements = new ArrayList<BaseElement>();
-        listOfElements.add(header);
-        listOfElements.add(videosSearchBar);
-        listOfElements.add(topShowSection);
-        listOfElements.add(featuredVideosSection);
-        listOfElements.add(browseVideosSection);
-        listOfElements.add(footer);
-
-        List<BaseElement> listOfHeaderElements = header.getExpectedDesktopLayout();
-        listOfElements.addAll(listOfHeaderElements);
-
-        return listOfElements;
     }
 
 }
