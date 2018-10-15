@@ -20,6 +20,14 @@ public class BaseSWPage {
     protected List<BaseElement> listOfDesktopViewElements = new ArrayList<BaseElement>();
     protected Header header = new Header();
     protected Footer footer = new Footer();
+    private BaseElement searchResultsBox = new BaseElement(By.cssSelector("div.search-bound"));
+
+    /**
+     * @return searchResultsBox
+     */
+    public BaseElement getSearchResultsBox() {
+        return searchResultsBox;
+    }
 
     /**
      * Sets the driver that will be shared among page objects

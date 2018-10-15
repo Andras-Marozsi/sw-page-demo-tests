@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="SmokeSuite" verbose="1" >
+    <test name="MainPageSmoke">
+        <classes>
+            <class name="tests.SWMainPageTest"/>
+        </classes>
+    </test>
+    <test name="FilmsPageSmoke">
+        <classes>
+            <class name="tests.SWFilmsPageTest"/>
+        </classes>
+    </test>
+    <test name="VideoPageSmoke">
+        <classes>
+            <class name="tests.SWVideoPageTest"/>
+        </classes>
+    </test>
+</suite>

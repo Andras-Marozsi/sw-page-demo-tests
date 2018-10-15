@@ -33,8 +33,8 @@ public class SWFilmsPage extends BaseSWPage {
 
     public SWFilmsPage() {
         super();
-        this.url += "/video";
-        this.dataSection = "film";
+        this.url += "/films";
+        this.dataSection = "films";
         listOfDesktopViewElements.add(header);
         listOfDesktopViewElements.add(filmSelector);
         listOfDesktopViewElements.add(filmSections);

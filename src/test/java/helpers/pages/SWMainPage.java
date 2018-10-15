@@ -15,7 +15,6 @@ public class SWMainPage extends BaseSWPage {
     // Sections
     private BaseElement newsSection = new BaseElement(By.cssSelector("section#ref-1-7"));
     private BaseElement videoSection = new BaseElement(By.cssSelector("section#ref-1-9"));
-    private BaseElement searchResultsBox = new BaseElement(By.cssSelector("div.search-bound"));
 
     /**
      * @return newsSection
@@ -29,13 +28,6 @@ public class SWMainPage extends BaseSWPage {
      */
     public BaseElement getVideoSection() {
         return videoSection;
-    }
-
-    /**
-     * @return searchResultsBox
-     */
-    public BaseElement getSearchResultsBox() {
-        return searchResultsBox;
     }
 
     /**
