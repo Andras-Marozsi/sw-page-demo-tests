@@ -1,6 +1,7 @@
 package helpers.components;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
@@ -14,6 +15,7 @@ public class BaseElement {
 
     /**
      * Constructor for the helper, will use the selector provided here for later interactions
+     *
      * @param selector Selector of the element
      */
     public BaseElement(By selector) {
@@ -22,6 +24,7 @@ public class BaseElement {
 
     /**
      * Sets the driver to use, this will ba shared between all elements
+     *
      * @param d Driver to use
      */
     public static void setDriver(WebDriver d) {
@@ -31,6 +34,7 @@ public class BaseElement {
     /**
      * Checks if the element is present and visible on the page.
      * Handles the case when the element is missing from the page
+     *
      * @return visibility of the element
      */
     public boolean isVisible() {
@@ -46,6 +50,7 @@ public class BaseElement {
 
     /**
      * Checks if the element is present on the page
+     *
      * @return presence of the element
      */
     public boolean isPresent() {
@@ -54,15 +59,25 @@ public class BaseElement {
     }
 
     /**
+     * Scrolls to the element
+     */
+    public void scrollTo() {
+        System.out.printf("Scrolling to element %s\n", this.selector);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(this.selector));
+    }
+
+    /**
      * Clicks on the element
      */
     public void click() {
+        scrollTo();
         System.out.printf("Clicking on element %s\n", this.selector);
         driver.findElement(this.selector).click();
     }
 
     /**
      * Sends a string to the element
+     *
      * @param string String to send
      */
     public void sendKeys(String string) {
@@ -80,6 +95,7 @@ public class BaseElement {
 
     /**
      * Returns the text of the element
+     *
      * @return text of element
      */
     public String getText() {
