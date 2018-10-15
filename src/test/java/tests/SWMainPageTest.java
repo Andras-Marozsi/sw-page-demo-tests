@@ -8,6 +8,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SWMainPageTest {
     private WebDriver driver;
     private SWMainPage mainPage;
@@ -35,7 +38,10 @@ public class SWMainPageTest {
 
     @Test(dependsOnMethods = {"testPageLoads"}, priority = 2)
     public void testPageElements() {
-        mainPage.checkDesktopLayout();
+        List<BaseElement> expectedElements = mainPage.getExpectedDesktopLayout();
+        for (BaseElement elem : expectedElements) {
+            Assert.assertTrue(elem.isVisible());
+        }
     }
 
     @Test(dependsOnMethods = {"testPageLoads"}, priority = 3)

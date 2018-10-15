@@ -11,7 +11,7 @@ public class BasePage {
 
     protected static WebDriver driver;
     protected String url;
-    protected String moduleTitle;
+    protected String dataSection;
 
     /**
      * Sets the driver that will be shared among page objects
@@ -36,9 +36,9 @@ public class BasePage {
      */
     public boolean isCurrentPage() {
         boolean current;
-        BaseElement module = new BaseElement(By.cssSelector("h2.module_title"));
+        BaseElement module = new BaseElement(By.cssSelector("div#body-wrapper"));
         if (module.isPresent()) {
-            current = module.getText().equals(this.moduleTitle);
+            current = module.getAttribute("data-section").equals(this.dataSection);
         } else {
             current = false;
         }

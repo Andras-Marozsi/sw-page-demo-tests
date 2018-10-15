@@ -102,4 +102,14 @@ public class BaseElement {
         System.out.printf("Getting text of element %s\n", this.selector);
         return driver.findElement(this.selector).getText();
     }
+
+    /**
+     * Getting the specified attribute of element
+     * @param attr attribute to get
+     * @return attribute of element
+     */
+    public String getAttribute(String attr) {
+        System.out.printf("Getting attribute '"  + attr + "' of element %s\n", this.selector);
+        return driver.findElement(this.selector).getAttribute(attr);
+    }
 }

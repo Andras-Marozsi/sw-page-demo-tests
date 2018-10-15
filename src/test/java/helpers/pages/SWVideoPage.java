@@ -9,37 +9,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Page helper for Star Wars Main page
+ * Page helper for Star Wars Video page
  */
-public class SWMainPage extends BasePage {
+public class SWVideoPage extends BasePage {
 
     private Header header = new Header();
     private Footer footer = new Footer();
+
     // Sections
-    private BaseElement newsSection = new BaseElement(By.cssSelector("section#ref-1-7"));
-    private BaseElement videoSection = new BaseElement(By.cssSelector("section#ref-1-9"));
-    private BaseElement searchResultsBox = new BaseElement(By.cssSelector("div.search-bound"));
-
-    /**
-     * @return newsSection
-     */
-    public BaseElement getNewsSection() {
-        return newsSection;
-    }
-
-    /**
-     * @return videoSection
-     */
-    public BaseElement getVideoSection() {
-        return videoSection;
-    }
-
-    /**
-     * @return searchResultsBox
-     */
-    public BaseElement getSearchResultsBox() {
-        return searchResultsBox;
-    }
+    private BaseElement videosSearchBar = new BaseElement(By.cssSelector("section.search input[name='q']"));
+    private BaseElement topShowSection = new BaseElement(By.cssSelector("section#ref-1-1"));
+    private BaseElement featuredVideosSection = new BaseElement(By.cssSelector("section#ref-1-2"));
+    private BaseElement browseVideosSection = new BaseElement(By.cssSelector("section#ref-1-4"));
 
     /**
      * @return header
@@ -55,10 +36,10 @@ public class SWMainPage extends BasePage {
         return footer;
     }
 
-    public SWMainPage() {
+    public SWVideoPage() {
         super();
-        this.url = "https://www.starwars.com/";
-        this.dataSection = "";
+        this.url = "https://www.starwars.com/video";
+        this.dataSection = "video";
     }
 
     /**
@@ -66,7 +47,17 @@ public class SWMainPage extends BasePage {
      *
      * @param string to search for
      */
-    public void search(String string) {
+    public void navSearch(String string) {
+        videosSearchBar.sendKeys(string);
+        videosSearchBar.submit();
+    }
+
+    /**
+     * Types in the provided search phrase and sends the ENTER key to the search bar on the page
+     *
+     * @param string to search for
+     */
+    public void searchVideos(String string) {
         header.getNavSearch().sendKeys(string);
         header.getNavSearch().submit();
     }
@@ -79,8 +70,10 @@ public class SWMainPage extends BasePage {
     public List<BaseElement> getExpectedDesktopLayout() {
         List<BaseElement> listOfElements = new ArrayList<BaseElement>();
         listOfElements.add(header);
-        listOfElements.add(newsSection);
-        listOfElements.add(videoSection);
+        listOfElements.add(videosSearchBar);
+        listOfElements.add(topShowSection);
+        listOfElements.add(featuredVideosSection);
+        listOfElements.add(browseVideosSection);
         listOfElements.add(footer);
 
         List<BaseElement> listOfHeaderElements = header.getExpectedDesktopLayout();

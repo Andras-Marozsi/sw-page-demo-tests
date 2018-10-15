@@ -1,7 +1,9 @@
 package helpers.components;
 
 import org.openqa.selenium.By;
-import org.testng.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Helper for the Header, including search/navigation/etc.
@@ -56,29 +58,33 @@ public class Header extends BaseElement {
     }
 
     /**
-     * Checks if all the elements that are supposed to be displayed on the {desktop} layout ar visible
+     * Returns the expected elements for desktop layout
+     *
+     * @return listOfElements
      */
-    public void checkDesktopLayout() {
-        Assert.assertTrue(navSearch.isVisible());
-        Assert.assertTrue(logo.isVisible());
-        Assert.assertTrue(logIn.isVisible());
-        Assert.assertTrue(signUp.isVisible());
-        Assert.assertTrue(socialLinks.isVisible());
-        Assert.assertTrue(facebookLink.isVisible());
-        Assert.assertTrue(tumblrLink.isVisible());
-        Assert.assertTrue(twitterLink.isVisible());
-        Assert.assertTrue(instagramLink.isVisible());
-        Assert.assertTrue(googlePlusLink.isVisible());
-        Assert.assertTrue(youtubeLink.isVisible());
-        Assert.assertTrue(sections.isVisible());
-        Assert.assertTrue(newsSection.isVisible());
-        Assert.assertTrue(videoSection.isVisible());
-        Assert.assertTrue(eventsSection.isVisible());
-        Assert.assertTrue(filmsSection.isVisible());
-        Assert.assertTrue(tvShowsSection.isVisible());
-        Assert.assertTrue(gamesAppsSection.isVisible());
-        Assert.assertTrue(communitySection.isVisible());
-        Assert.assertTrue(dataBankSection.isVisible());
+    public List<BaseElement> getExpectedDesktopLayout() {
+        List<BaseElement> listOfElements = new ArrayList<BaseElement>();
+        listOfElements.add(navSearch);
+        listOfElements.add(logo);
+        listOfElements.add(logIn);
+        listOfElements.add(signUp);
+        listOfElements.add(socialLinks);
+        listOfElements.add(facebookLink);
+        listOfElements.add(tumblrLink);
+        listOfElements.add(twitterLink);
+        listOfElements.add(instagramLink);
+        listOfElements.add(googlePlusLink);
+        listOfElements.add(youtubeLink);
+        listOfElements.add(sections);
+        listOfElements.add(newsSection);
+        listOfElements.add(videoSection);
+        listOfElements.add(eventsSection);
+        listOfElements.add(filmsSection);
+        listOfElements.add(tvShowsSection);
+        listOfElements.add(gamesAppsSection);
+        listOfElements.add(communitySection);
+        listOfElements.add(dataBankSection);
+        return listOfElements;
     }
 
 }
