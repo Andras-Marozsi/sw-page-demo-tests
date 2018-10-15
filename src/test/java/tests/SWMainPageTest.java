@@ -27,18 +27,18 @@ public class SWMainPageTest {
         Assert.assertTrue(mainPage.isCurrentPage());
     }
 
-    @Test(priority = 2)
+    @Test(dependsOnMethods = {"testPageLoads"}, priority = 2)
     public void testPageTitle() {
         String title = driver.getTitle();
         Assert.assertTrue(title.contains("The Official Star Wars Website"), "Actual title: " + title);
     }
 
-    @Test(priority = 3)
+    @Test(dependsOnMethods = {"testPageLoads"}, priority = 2)
     public void testPageElements() {
         mainPage.checkDesktopLayout();
     }
 
-    @Test(priority = 4)
+    @Test(dependsOnMethods = {"testPageLoads"}, priority = 3)
     public void testPageSearch() {
         Assert.assertFalse(mainPage.getSearchResultsBox().isVisible());
         mainPage.search("Jabba");
