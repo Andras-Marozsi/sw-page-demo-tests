@@ -40,9 +40,9 @@ public class SWMainPageTest {
 
     @Test(priority = 4)
     public void testPageSearch() {
-        Assert.assertFalse(mainPage.searchResultsBox.isVisible());
+        Assert.assertFalse(mainPage.getSearchResultsBox().isVisible());
         mainPage.search("Jabba");
-        Assert.assertTrue(mainPage.searchResultsBox.isVisible());
+        Assert.assertTrue(mainPage.getSearchResultsBox().isVisible());
     }
 
     @AfterClass
