@@ -22,4 +22,10 @@
             <class name="tests.SWPagesSmokeTest"/>
         </classes>
     </test>
+
+    <test name="NavigationTests">
+        <classes>
+            <class name="tests.SWPagesNavigationTest"/>
+        </classes>
+    </test>
 </suite>

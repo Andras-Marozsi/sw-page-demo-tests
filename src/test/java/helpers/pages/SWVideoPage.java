@@ -10,38 +10,21 @@ import org.openqa.selenium.By;
  */
 public class SWVideoPage extends BaseSWPage {
 
-    private Header header = new Header();
-    private Footer footer = new Footer();
-
     // Sections
     private BaseElement videosSearchBar = new BaseElement(By.cssSelector("section.search input[name='q']"));
     private BaseElement topShowSection = new BaseElement(By.cssSelector("section#ref-1-1"));
     private BaseElement featuredVideosSection = new BaseElement(By.cssSelector("section#ref-1-2"));
     private BaseElement browseVideosSection = new BaseElement(By.cssSelector("section#ref-1-4"));
 
-    /**
-     * @return header
-     */
-    public Header getHeader() {
-        return header;
-    }
-
-    /**
-     * @return footer
-     */
-    public Footer getFooter() {
-        return footer;
-    }
-
     public SWVideoPage() {
         super();
         this.url += "/video";
         this.dataSection = "video";
-        listOfDesktopViewElements.add(header);
+        listOfDesktopViewElements.add(this.header);
         listOfDesktopViewElements.add(topShowSection);
         listOfDesktopViewElements.add(featuredVideosSection);
         listOfDesktopViewElements.add(browseVideosSection);
-        listOfDesktopViewElements.add(footer);
+        listOfDesktopViewElements.add(this.footer);
     }
 
     /**

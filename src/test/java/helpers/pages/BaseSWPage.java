@@ -18,6 +18,15 @@ public class BaseSWPage {
     protected String url = "https://www.starwars.com";
     protected String dataSection;
     protected List<BaseElement> listOfDesktopViewElements = new ArrayList<BaseElement>();
+
+    public Header getHeader() {
+        return header;
+    }
+
+    public Footer getFooter() {
+        return footer;
+    }
+
     protected Header header = new Header();
     protected Footer footer = new Footer();
     private BaseElement searchResultsBox = new BaseElement(By.cssSelector("div.search-bound"));

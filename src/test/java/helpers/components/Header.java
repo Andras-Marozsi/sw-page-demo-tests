@@ -41,6 +41,29 @@ public class Header extends BaseElement {
         return navSearch;
     }
 
+    public BaseElement getSections() {
+        return sections;
+    }
+
+    public BaseElement getNewsSection() {
+        return newsSection;
+    }
+
+    public BaseElement getVideoSection() {
+        return videoSection;
+    }
+
+    public BaseElement getEventsSection() {
+        return eventsSection;
+    }
+
+    public BaseElement getFilmsSection() {
+        return filmsSection;
+    }
+
+    public BaseElement getLogo() {
+        return logo;
+    }
     /**
      * Constructor with the default base selector
      */
