@@ -6,39 +6,44 @@ import helpers.pages.SWMainPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class SWMainPageTest {
+public class SWPagesSmokeTest {
     private WebDriver driver;
-    private SWMainPage mainPage;
+    private BaseSWPage page;
 
+    @Parameters({"pageType"})
     @BeforeClass
-    public void setup() {
+    public void setup(String pageType) {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
         BaseElement.setDriver(driver);
         BaseSWPage.setDriver(driver);
-        mainPage = new SWMainPage();
+        page = BaseSWPage.getPageInstance(pageType);
     }
 
     @Test(priority = 1)
     public void testPageLoads() {
-        mainPage.visit();
-        Assert.assertTrue(mainPage.isCurrentPage());
+        page.visit();
+        Assert.assertTrue(page.isCurrentPage());
     }
 
+    @Parameters({"expectedTitle"})
     @Test(dependsOnMethods = {"testPageLoads"}, priority = 2)
-    public void testPageTitle() {
+    public void testPageTitle(String expectedTitle) {
         String title = driver.getTitle();
         System.out.printf("Title of page: %s\n", title);
-        Assert.assertTrue(title.contains("The Official Star Wars Website"), "Actual title: " + title);
+        Assert.assertTrue(title.contains(expectedTitle), "Actual title: " + title);
     }
 
     @Test(dependsOnMethods = {"testPageLoads"}, priority = 2)
     public void testPageElements() {
-        List<BaseElement> expectedElements = mainPage.getExpectedDesktopLayout();
+        List<BaseElement> expectedElements = page.getExpectedDesktopLayout();
         for (BaseElement elem : expectedElements) {
             Assert.assertTrue(elem.isVisible());
         }
@@ -46,9 +51,9 @@ public class SWMainPageTest {
 
     @Test(dependsOnMethods = {"testPageLoads"}, priority = 3)
     public void testPageSearch() {
-        Assert.assertFalse(mainPage.getSearchResultsBox().isVisible());
-        mainPage.search("Jabba");
-        Assert.assertTrue(mainPage.getSearchResultsBox().isVisible());
+        Assert.assertFalse(page.getSearchResultsBox().isVisible());
+        page.search("Jabba");
+        Assert.assertTrue(page.getSearchResultsBox().isVisible());
     }
 
     @AfterClass

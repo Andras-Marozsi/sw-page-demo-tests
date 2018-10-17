@@ -1,19 +1,25 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="SmokeSuite" verbose="1" >
+<suite name="SmokeSuite" verbose="1">
     <test name="MainPageSmoke">
+        <parameter name="pageType" value="Main"/>
+        <parameter name="expectedTitle" value="The Official Star Wars Website"/>
         <classes>
-            <class name="tests.SWMainPageTest"/>
-        </classes>
-    </test>
-    <test name="FilmsPageSmoke">
-        <classes>
-            <class name="tests.SWFilmsPageTest"/>
+            <class name="tests.SWPagesSmokeTest"/>
         </classes>
     </test>
     <test name="VideoPageSmoke">
+        <parameter name="pageType" value="Video"/>
+        <parameter name="expectedTitle" value="Star Wars Videos"/>
         <classes>
-            <class name="tests.SWVideoPageTest"/>
+            <class name="tests.SWPagesSmokeTest"/>
+        </classes>
+    </test>
+    <test name="FilmsPageSmoke">
+        <parameter name="pageType" value="Films"/>
+        <parameter name="expectedTitle" value="Star Wars Movies"/>
+        <classes>
+            <class name="tests.SWPagesSmokeTest"/>
         </classes>
     </test>
 </suite>

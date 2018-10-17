@@ -84,4 +84,24 @@ public class BaseSWPage {
         this.header.getNavSearch().sendKeys(string);
         this.header.getNavSearch().submit();
     }
+
+    /**
+     * Basic page factory
+     * @param pageType type of the page
+     * @return the requested page
+     */
+    public static BaseSWPage getPageInstance(String pageType) {
+        BaseSWPage page;
+        if (pageType.equals("Main")) {
+            page = new SWMainPage();
+        } else if (pageType.equals("Films")) {
+            page = new SWFilmsPage();
+        } else if (pageType.equals("Video")) {
+            page = new SWVideoPage();
+        } else {
+            throw new Error("Unknown page type: " + pageType);
+        }
+
+        return page;
+    }
 }
