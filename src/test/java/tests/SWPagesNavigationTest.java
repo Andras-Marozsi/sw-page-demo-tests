@@ -5,6 +5,7 @@ import helpers.pages.BaseSWPage;
 import helpers.pages.SWFilmsPage;
 import helpers.pages.SWMainPage;
 import helpers.pages.SWVideoPage;
+import helpers.utils.Constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -18,7 +19,7 @@ public class SWPagesNavigationTest {
 
     @BeforeClass
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        System.setProperty(Constants.WEBDRIVER_PROPERTY_CHROME, Constants.WEBDRIVER_PATH_CHROME);
         driver = new ChromeDriver();
         BaseElement.setDriver(driver);
         BaseSWPage.setDriver(driver);

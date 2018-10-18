@@ -2,6 +2,7 @@ package tests;
 
 import helpers.components.BaseElement;
 import helpers.pages.BaseSWPage;
+import helpers.utils.Constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -19,7 +20,7 @@ public class SWPagesSmokeTest {
     @Parameters({"pageType"})
     @BeforeClass
     public void setup(String pageType) {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        System.setProperty(Constants.WEBDRIVER_PROPERTY_CHROME, Constants.WEBDRIVER_PATH_CHROME);
         driver = new ChromeDriver();
         BaseElement.setDriver(driver);
         BaseSWPage.setDriver(driver);

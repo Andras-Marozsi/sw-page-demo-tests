@@ -2,6 +2,9 @@ package helpers.utils;
 
 public class Constants {
 
+    public static final String WEBDRIVER_PROPERTY_CHROME = "webdriver.chrome.driver";
+    public static final String WEBDRIVER_PATH_CHROME = "src/test/resources/chromedriver.exe";
+
     public static final String PAGE_LOAD_FINISHED_SCRIPT = "" +
             "if (document.readyState == 'complete' && jQuery.active == 0) {"
             + "  return true;"

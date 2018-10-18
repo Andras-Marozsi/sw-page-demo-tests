@@ -17,7 +17,7 @@ public class SWPlayerTest {
 
     @BeforeClass
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        System.setProperty(Constants.WEBDRIVER_PROPERTY_CHROME, Constants.WEBDRIVER_PATH_CHROME);
         driver = new ChromeDriver();
         BaseElement.setDriver(driver);
         BaseSWPage.setDriver(driver);

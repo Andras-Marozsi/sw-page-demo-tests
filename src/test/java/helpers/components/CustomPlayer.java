@@ -1,5 +1,6 @@
 package helpers.components;
 
+import helpers.utils.Helper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -24,11 +25,7 @@ public class CustomPlayer extends BaseElement {
      */
     public void playPause() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", playPauseIcon.getElement());
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Helper.waitInMSec(1000);
     }
 
     /**

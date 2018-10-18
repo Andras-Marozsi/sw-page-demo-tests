@@ -4,6 +4,7 @@ import helpers.components.BaseElement;
 import helpers.components.Footer;
 import helpers.components.Header;
 import helpers.utils.Constants;
+import helpers.utils.Helper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -133,6 +134,7 @@ public class BaseSWPage {
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSec);
         System.out.printf("Waiting for background calls to finish (Timeout: %d sec\n", timeoutInSec);
         wait.until(ExpectedConditions.javaScriptThrowsNoExceptions(Constants.PAGE_LOAD_FINISHED_SCRIPT));
-        System.out.printf("All background calls have finished, the page should be fully loaded");
+        System.out.println("All background calls have finished, the page should be fully loaded, waiting an extra second");
+        Helper.waitInMSec(1000);
     }
 }
