@@ -1,6 +1,6 @@
 package helpers.pages;
 
-import helpers.components.BaseElement;
+import helpers.components.Section;
 import org.openqa.selenium.By;
 
 /**
@@ -8,21 +8,29 @@ import org.openqa.selenium.By;
  */
 public class SWMainPage extends BaseSWPage {
     // Sections
-    private BaseElement newsSection = new BaseElement(By.cssSelector("section#ref-1-7"));
-    private BaseElement videoSection = new BaseElement(By.cssSelector("section#ref-1-9"));
+    private Section newsSection = new Section(By.cssSelector("section#ref-1-7"));
+    private Section videoSection = new Section(By.cssSelector("section#ref-1-9"));
+    private Section dataBankSection = new Section(By.cssSelector("section#ref-1-16"));
 
     /**
      * @return newsSection
      */
-    public BaseElement getNewsSection() {
+    public Section getNewsSection() {
         return newsSection;
     }
 
     /**
      * @return videoSection
      */
-    public BaseElement getVideoSection() {
+    public Section getVideoSection() {
         return videoSection;
+    }
+
+    /**
+     * @return dataBankSection
+     */
+    public Section getDataBankSection() {
+        return dataBankSection;
     }
 
     public SWMainPage() {
@@ -32,6 +40,7 @@ public class SWMainPage extends BaseSWPage {
         listOfDesktopViewElements.add(this.header);
         listOfDesktopViewElements.add(newsSection);
         listOfDesktopViewElements.add(videoSection);
+        listOfDesktopViewElements.add(dataBankSection);
         listOfDesktopViewElements.add(this.footer);
     }
 

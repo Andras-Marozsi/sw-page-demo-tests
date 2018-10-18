@@ -131,6 +131,8 @@ public class BaseSWPage {
      */
     public void waitForBackgroundCallsToFinish(int timeoutInSec) {
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSec);
+        System.out.printf("Waiting for background calls to finish (Timeout: %d sec\n", timeoutInSec);
         wait.until(ExpectedConditions.javaScriptThrowsNoExceptions(Constants.PAGE_LOAD_FINISHED_SCRIPT));
+        System.out.printf("All background calls have finished, the page should be fully loaded");
     }
 }

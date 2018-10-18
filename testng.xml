@@ -34,4 +34,10 @@
             <class name="tests.SWPlayerTest"/>
         </classes>
     </test>
+
+    <test name="ShowMoreTests">
+        <classes>
+            <class name="tests.SWShowMoreTest"/>
+        </classes>
+    </test>
 </suite>

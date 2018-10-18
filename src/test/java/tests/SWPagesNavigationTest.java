@@ -28,7 +28,7 @@ public class SWPagesNavigationTest {
     @Test
     public void testPageLoads() {
         page.visit();
-        Assert.assertTrue(page.isCurrentPage());
+        Assert.assertTrue(page.isCurrentPage(), "Current page is not as expected!");
     }
 
     @Test(dependsOnMethods = {"testPageLoads"})
@@ -40,21 +40,21 @@ public class SWPagesNavigationTest {
     public void testNavigateToVideoPage() {
         page.getHeader().getVideoSection().click();
         page = new SWVideoPage();
-        Assert.assertTrue(page.isCurrentPage());
+        Assert.assertTrue(page.isCurrentPage(), "Current page is not as expected!");
     }
 
     @Test(dependsOnMethods = {"testPageLoads"}, priority = 2)
     public void testNavigateToFilmsPage() {
         page.getHeader().getFilmsSection().click();
         page = new SWFilmsPage();
-        Assert.assertTrue(page.isCurrentPage());
+        Assert.assertTrue(page.isCurrentPage(), "Current page is not as expected!");
     }
 
     @Test(dependsOnMethods = {"testPageLoads"}, priority = 3)
     public void testNavigateToMainPage() {
         page.getHeader().getLogo().click();
         page = new SWMainPage();
-        Assert.assertTrue(page.isCurrentPage());
+        Assert.assertTrue(page.isCurrentPage(), "Current page is not as expected!");
     }
 
     @AfterClass
