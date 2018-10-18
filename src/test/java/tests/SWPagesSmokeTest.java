@@ -2,7 +2,6 @@ package tests;
 
 import helpers.components.BaseElement;
 import helpers.pages.BaseSWPage;
-import helpers.pages.SWMainPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;

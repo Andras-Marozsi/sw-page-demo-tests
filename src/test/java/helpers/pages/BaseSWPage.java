@@ -3,8 +3,11 @@ package helpers.pages;
 import helpers.components.BaseElement;
 import helpers.components.Footer;
 import helpers.components.Header;
+import helpers.utils.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,17 +22,23 @@ public class BaseSWPage {
     protected String dataSection;
     protected List<BaseElement> listOfDesktopViewElements = new ArrayList<BaseElement>();
 
+    protected Header header = new Header();
+    protected Footer footer = new Footer();
+    private BaseElement searchResultsBox = new BaseElement(By.cssSelector("div.search-bound"));
+
+    /**
+     * @return header
+     */
     public Header getHeader() {
         return header;
     }
 
+    /**
+     * @return footer
+     */
     public Footer getFooter() {
         return footer;
     }
-
-    protected Header header = new Header();
-    protected Footer footer = new Footer();
-    private BaseElement searchResultsBox = new BaseElement(By.cssSelector("div.search-bound"));
 
     /**
      * @return searchResultsBox
@@ -96,6 +105,7 @@ public class BaseSWPage {
 
     /**
      * Basic page factory
+     *
      * @param pageType type of the page
      * @return the requested page
      */
@@ -112,5 +122,15 @@ public class BaseSWPage {
         }
 
         return page;
+    }
+
+    /**
+     * Waits for the background calls to be finished
+     *
+     * @param timeoutInSec timeout in sec
+     */
+    public void waitForBackgroundCallsToFinish(int timeoutInSec) {
+        WebDriverWait wait = new WebDriverWait(driver, timeoutInSec);
+        wait.until(ExpectedConditions.javaScriptThrowsNoExceptions(Constants.PAGE_LOAD_FINISHED_SCRIPT));
     }
 }

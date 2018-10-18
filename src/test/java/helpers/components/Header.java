@@ -16,26 +16,26 @@ public class Header extends BaseElement {
     private BaseElement signUp = new BaseElement(By.cssSelector("div.nav-login div.disid-signup"));
 
     // Social Links
-    private String socialLinksSelector = "span#navbar ul#social-links";
-    private BaseElement socialLinks = new BaseElement(By.cssSelector(socialLinksSelector));
-    private BaseElement facebookLink = new BaseElement(By.cssSelector(socialLinksSelector + " a[title='facebook']"));
-    private BaseElement tumblrLink = new BaseElement(By.cssSelector(socialLinksSelector + " a[title='tumblr']"));
-    private BaseElement twitterLink = new BaseElement(By.cssSelector(socialLinksSelector + " a[title='twitter']"));
-    private BaseElement instagramLink = new BaseElement(By.cssSelector(socialLinksSelector + " a[title='instagram']"));
-    private BaseElement googlePlusLink = new BaseElement(By.cssSelector(socialLinksSelector + " a[title='google plus']"));
-    private BaseElement youtubeLink = new BaseElement(By.cssSelector(socialLinksSelector + " a[title='youtube']"));
+    private static final String SOCIAL_LINKS_SELECTOR = "span#navbar ul#social-links";
+    private BaseElement socialLinks = new BaseElement(By.cssSelector(SOCIAL_LINKS_SELECTOR));
+    private BaseElement facebookLink = new BaseElement(By.cssSelector(SOCIAL_LINKS_SELECTOR + " a[title='facebook']"));
+    private BaseElement tumblrLink = new BaseElement(By.cssSelector(SOCIAL_LINKS_SELECTOR + " a[title='tumblr']"));
+    private BaseElement twitterLink = new BaseElement(By.cssSelector(SOCIAL_LINKS_SELECTOR + " a[title='twitter']"));
+    private BaseElement instagramLink = new BaseElement(By.cssSelector(SOCIAL_LINKS_SELECTOR + " a[title='instagram']"));
+    private BaseElement googlePlusLink = new BaseElement(By.cssSelector(SOCIAL_LINKS_SELECTOR + " a[title='google plus']"));
+    private BaseElement youtubeLink = new BaseElement(By.cssSelector(SOCIAL_LINKS_SELECTOR + " a[title='youtube']"));
 
     // Sections
-    private String sectionsSelector = "ul#section-links";
-    private BaseElement sections = new BaseElement(By.cssSelector(sectionsSelector));
-    private BaseElement newsSection = new BaseElement(By.cssSelector(sectionsSelector + " a[data-section='news']"));
-    private BaseElement videoSection = new BaseElement(By.cssSelector(sectionsSelector + " a[data-section='video']"));
-    private BaseElement eventsSection = new BaseElement(By.cssSelector(sectionsSelector + " a[data-section='events']"));
-    private BaseElement filmsSection = new BaseElement(By.cssSelector(sectionsSelector + " a[data-section='films']"));
-    private BaseElement tvShowsSection = new BaseElement(By.cssSelector(sectionsSelector + " a[data-section='tvshows']"));
-    private BaseElement gamesAppsSection = new BaseElement(By.cssSelector(sectionsSelector + " a[data-section='gamesapps']"));
-    private BaseElement communitySection = new BaseElement(By.cssSelector(sectionsSelector + " a[data-section='community']"));
-    private BaseElement dataBankSection = new BaseElement(By.cssSelector(sectionsSelector + " a[data-section='databank']"));
+    private static final String SECTION_SELECTOR = "ul#section-links";
+    private BaseElement sections = new BaseElement(By.cssSelector(SECTION_SELECTOR));
+    private BaseElement newsSection = new BaseElement(By.cssSelector(SECTION_SELECTOR + " a[data-section='news']"));
+    private BaseElement videoSection = new BaseElement(By.cssSelector(SECTION_SELECTOR + " a[data-section='video']"));
+    private BaseElement eventsSection = new BaseElement(By.cssSelector(SECTION_SELECTOR + " a[data-section='events']"));
+    private BaseElement filmsSection = new BaseElement(By.cssSelector(SECTION_SELECTOR + " a[data-section='films']"));
+    private BaseElement tvShowsSection = new BaseElement(By.cssSelector(SECTION_SELECTOR + " a[data-section='tvshows']"));
+    private BaseElement gamesAppsSection = new BaseElement(By.cssSelector(SECTION_SELECTOR + " a[data-section='gamesapps']"));
+    private BaseElement communitySection = new BaseElement(By.cssSelector(SECTION_SELECTOR + " a[data-section='community']"));
+    private BaseElement dataBankSection = new BaseElement(By.cssSelector(SECTION_SELECTOR + " a[data-section='databank']"));
 
     public BaseElement getNavSearch() {
         return navSearch;
@@ -64,6 +64,7 @@ public class Header extends BaseElement {
     public BaseElement getLogo() {
         return logo;
     }
+
     /**
      * Constructor with the default base selector
      */

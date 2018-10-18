@@ -28,4 +28,10 @@
             <class name="tests.SWPagesNavigationTest"/>
         </classes>
     </test>
+
+    <test name="PlayerTests">
+        <classes>
+            <class name="tests.SWPlayerTest"/>
+        </classes>
+    </test>
 </suite>

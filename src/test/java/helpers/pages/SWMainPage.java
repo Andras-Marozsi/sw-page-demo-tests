@@ -1,8 +1,6 @@
 package helpers.pages;
 
 import helpers.components.BaseElement;
-import helpers.components.Footer;
-import helpers.components.Header;
 import org.openqa.selenium.By;
 
 /**

@@ -1,9 +1,6 @@
 package helpers.components;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 
 /**
  * Helper for basic element interactions
@@ -29,6 +26,23 @@ public class BaseElement {
      */
     public static void setDriver(WebDriver d) {
         driver = d;
+    }
+
+    /**
+     * Returns the selector of the element
+     *
+     * @return selector
+     */
+    public By getSelector() {
+        return selector;
+    }
+
+    /**
+     * Returns ths WebElement
+     * @return
+     */
+    public WebElement getElement() {
+        return driver.findElement(this.selector);
     }
 
     /**
@@ -105,11 +119,12 @@ public class BaseElement {
 
     /**
      * Getting the specified attribute of element
+     *
      * @param attr attribute to get
      * @return attribute of element
      */
     public String getAttribute(String attr) {
-        System.out.printf("Getting attribute '"  + attr + "' of element %s\n", this.selector);
+        System.out.printf("Getting attribute '" + attr + "' of element %s\n", this.selector);
         return driver.findElement(this.selector).getAttribute(attr);
     }
 }
